@@ -25,7 +25,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
             VRF_SUB_FUND_AMOUNT
         )
     } else {
-        vrfCoordinatorV2Address = networkConfig[chainId]["VRFCoordinatorV2"]
+        vrfCoordinatorV2Address = networkConfig[chainId]["vrfCoordinatorV2"]
         subscriptionId = networkConfig[chainId]["subscriptionId"]
     }
 

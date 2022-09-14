@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox")
 require("@nomiclabs/hardhat-ethers")
 require("hardhat-deploy")
-require("dotenv").config()
+require("dotenv").config({ path: "./.env" })
 /** @type import('hardhat/config').HardhatUserConfig */
 
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
@@ -13,16 +13,6 @@ const COINMARKET_API_KEY = process.env.COINMARKET_API_KEY
 
 module.exports = {
     defaultNetwork: "hardhat",
-    solidity: {
-        compilers: [
-            {
-                version: "0.8.7",
-            },
-            {
-                version: "0.8.9",
-            },
-        ],
-    },
     networks: {
         hardhat: {
             chainId: 31337,
@@ -49,6 +39,16 @@ module.exports = {
             url: "http://127.0.0.1:8545",
             chainId: 31337,
         },
+    },
+    solidity: {
+        compilers: [
+            {
+                version: "0.8.7",
+            },
+            {
+                version: "0.8.9",
+            },
+        ],
     },
     etherscan: {
         apiKey: {
@@ -96,7 +96,10 @@ module.exports = {
             default: 0,
         },
         player: {
-            default: 0,
+            default: 1,
         },
+    },
+    mocha: {
+        timeout: 500000, // 500 seconds max for running tests
     },
 }
